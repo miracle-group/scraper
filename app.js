@@ -8,7 +8,7 @@ const app               = require('express')()
       mongoose          = require('mongoose')
       articleController = require('./controllers/articleController')
       axios             = require('axios')
-      // scrap             = require('./gcf')
+      scrap             = require('./gcf')
 
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -26,7 +26,7 @@ let categories = []
 
 //scrape the categories
 
-const job = new CronJob (' 4 * * * *', () => {
+const job = new CronJob ('0 2 * * * *', () => {
   categories = []
   category.getCategory (datas => {
     datas.forEach(data => {
